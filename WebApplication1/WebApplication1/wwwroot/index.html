@@ -159,9 +159,23 @@
 
         loadSteps();
 
-        document.getElementById('time').textContent = new Intl.DateTimeFormat('ru-RU', {
-            hour: '2-digit', minute: '2-digit'
-        }).format(new Date());
+        const firstDisplayedMinutes = 18 * 60 + 1;
+        const latestDisplayedMinutes = 23 * 60 + 55;
+        let displayedMinutes = firstDisplayedMinutes + Math.floor(
+            Math.random() * (latestDisplayedMinutes - firstDisplayedMinutes + 1));
+
+        function updateWatchTime() {
+            const hoursText = String(Math.floor(displayedMinutes / 60)).padStart(2, '0');
+            const minutesText = String(displayedMinutes % 60).padStart(2, '0');
+            document.getElementById('time').textContent = `${hoursText}:${minutesText}`;
+
+            if (displayedMinutes < latestDisplayedMinutes) {
+                displayedMinutes++;
+            }
+        }
+
+        updateWatchTime();
+        setInterval(updateWatchTime, 60 * 1000);
     </script>
 </body>
 </html>
