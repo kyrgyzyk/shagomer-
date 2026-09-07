@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Счётчик шагов</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #101828, #1d4d42);
+        }
+
+        .card {
+            width: min(90%, 420px);
+            padding: 32px;
+            text-align: center;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, .12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+        }
+
+        h1 { margin-top: 0; }
+        .steps { font-size: 64px; font-weight: bold; color: #7cf2a3; }
+        .date { color: #cbd5e1; }
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: 0;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #7cf2a3;
+            color: #10251b;
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>Счётчик шагов</h1>
+        <div id="steps" class="steps">—</div>
+        <div id="date" class="date">Загрузка...</div>
+        <div id="stats" class="date"></div>
+    </main>
+
+    <script>
+        async function loadSteps() {
+            const stepsElement = document.getElementById('steps');
+            const dateElement = document.getElementById('date');
+            stepsElement.textContent = '...';
+
+            try {
+                const response = await fetch('/api/steps');
+                if (!response.ok) throw new Error('Ошибка сервера');
+
+                const data = await response.json();
+                stepsElement.textContent = Number(data.steps).toLocaleString('ru-RU');
+                dateElement.textContent = `${data.date} · цель: ${Number(data.goal).toLocaleString('ru-RU')} шагов`;
+                document.getElementById('stats').textContent =
+                    `${Number(data.distanceKm).toLocaleString('ru-RU')} км · примерно ${Number(data.calories).toLocaleString('ru-RU')} ккал`;
+            } catch (error) {
+                stepsElement.textContent = 'Ошибка';
+                dateElement.textContent = 'Не удалось загрузить количество шагов';
+            }
+        }
+
+        loadSteps();
+    </script>
+</body>
+</html>

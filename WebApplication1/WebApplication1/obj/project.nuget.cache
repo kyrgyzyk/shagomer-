@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "hLyhWHJnA+k=",
+  "success": true,
+  "projectFilePath": "D:\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MChe\\.nuget\\packages\\azure.core\\1.55.0\\azure.core.1.55.0.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\azure.identity\\1.21.0\\azure.identity.1.21.0.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\azure.storage.blobs\\12.29.2\\azure.storage.blobs.12.29.2.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\azure.storage.common\\12.28.0\\azure.storage.common.12.28.0.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\10.0.3\\microsoft.bcl.asyncinterfaces.10.0.3.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.identity.client\\4.83.1\\microsoft.identity.client.4.83.1.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.83.1\\microsoft.identity.client.extensions.msal.4.83.1.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.14.0\\microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\system.clientmodel\\1.11.0\\system.clientmodel.1.11.0.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\system.io.hashing\\10.0.3\\system.io.hashing.10.0.3.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\system.memory.data\\10.0.3\\system.memory.data.10.0.3.nupkg.sha512",
+    "C:\\Users\\MChe\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
