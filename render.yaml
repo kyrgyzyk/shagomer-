@@ -3,6 +3,6 @@ services:
     name: shagomer
     runtime: docker
     plan: free
-    dockerfilePath: ./WebApplication1/Dockerfile
-    dockerContext: .
+    dockerfilePath: ./WebApplication1/WebApplication1/Dockerfile
+    dockerContext: ./WebApplication1/WebApplication1
     healthCheckPath: /
