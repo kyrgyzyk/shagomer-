@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Счётчик шагов</title>
+    <title>Step Counter</title>
     <style>
         :root {
             color-scheme: dark;
@@ -117,21 +117,21 @@
     <main class="watch">
         <section class="screen">
             <div class="topbar"><span>Shagomer</span><span id="time">--:--</span></div>
-            <h1>Активность</h1>
-            <p id="date" class="subtitle">Загрузка...</p>
+            <h1>Activity</h1>
+            <p id="date" class="subtitle">Loading...</p>
             <div class="activity-ring">
                 <div class="ring-inner">
                     <div>
                         <div id="steps" class="steps">—</div>
-                        <div class="steps-label">ШАГОВ</div>
+                        <div class="steps-label">STEPS</div>
                     </div>
                 </div>
             </div>
             <div class="stats">
-                <div class="stat"><span id="distance" class="stat-value">—</span><span class="stat-label">КИЛОМЕТРОВ</span></div>
-                <div class="stat"><span id="calories" class="stat-value">—</span><span class="stat-label">КАЛОРИЙ</span></div>
+                <div class="stat"><span id="distance" class="stat-value">—</span><span class="stat-label">KILOMETERS</span></div>
+                <div class="stat"><span id="calories" class="stat-value">—</span><span class="stat-label">CALORIES</span></div>
             </div>
-            <div class="status">Цель на сегодня: <span id="goal">—</span></div>
+            <div class="status">Today's goal: <span id="goal">—</span></div>
         </section>
     </main>
 
@@ -143,17 +143,17 @@
 
             try {
                 const response = await fetch('/api/steps');
-                if (!response.ok) throw new Error('Ошибка сервера');
+                if (!response.ok) throw new Error('Server error');
 
                 const data = await response.json();
-                stepsElement.textContent = Number(data.steps).toLocaleString('ru-RU');
+                stepsElement.textContent = Number(data.steps).toLocaleString('en-US');
                 dateElement.textContent = data.date;
-                document.getElementById('distance').textContent = `${Number(data.distanceKm).toLocaleString('ru-RU')} км`;
-                document.getElementById('calories').textContent = `${Number(data.calories).toLocaleString('ru-RU')} ккал`;
-                document.getElementById('goal').textContent = `${Number(data.goal).toLocaleString('ru-RU')} шагов`;
+                document.getElementById('distance').textContent = `${Number(data.distanceKm).toLocaleString('en-US')} km`;
+                document.getElementById('calories').textContent = `${Number(data.calories).toLocaleString('en-US')} kcal`;
+                document.getElementById('goal').textContent = `${Number(data.goal).toLocaleString('en-US')} steps`;
             } catch (error) {
-                stepsElement.textContent = 'Ошибка';
-                dateElement.textContent = 'Не удалось загрузить количество шагов';
+                stepsElement.textContent = 'Error';
+                dateElement.textContent = 'Unable to load step count';
             }
         }
 
